@@ -33,15 +33,23 @@ dependencies {
     testImplementation group: 'io.cucumber', name: 'cucumber-junit', version: '6.10.0'
     implementation group: 'io.cucumber', name: 'cucumber-java', version: '6.10.0'
 
+    // Reporte Cucumber
+    implementation group: 'net.masterthought', name: 'cucumber-reporting', version: '5.5.2'
+
+
 }
 
+
+//  gradle clean ----------> limpiar la carpeta : build
+// gradle cucumber -------> ejecutar los test
 task cucumber() {
     dependsOn assemble, testClasses
     doLast {
         javaexec {
             main = "io.cucumber.core.cli.Main"
             classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
-            args = ['--plugin', 'pretty', '--glue', 'runner', 'src/test/resources']
+            //args = ['--plugin','html:build/reports/cucumber/report.html' , '--glue', 'runner', 'src/test/resources']
+            args = ['--plugin','json:build/reports/cucumber/report.json' , '--glue', 'runner', 'src/test/resources']
         }
     }
 }
