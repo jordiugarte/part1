@@ -68,7 +68,7 @@ public class MyStepdefs {
                         preemptive().
                         basic("upb2021@upb.com","12345").
                         contentType(ContentType.JSON).
-                        body(body).
+                        body(replaceAllData(body)).
                         log().
                         all().
                     when().

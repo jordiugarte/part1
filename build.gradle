@@ -42,6 +42,7 @@ dependencies {
 
 //  gradle clean ----------> limpiar la carpeta : build
 // gradle cucumber -------> ejecutar los test
+// gradle cucumber -Psuite=@item
 task cucumber() {
     dependsOn assemble, testClasses
     doLast {
@@ -49,7 +50,7 @@ task cucumber() {
             main = "io.cucumber.core.cli.Main"
             classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
             //args = ['--plugin','html:build/reports/cucumber/report.html' , '--glue', 'runner', 'src/test/resources']
-            args = ['--plugin','json:build/reports/cucumber/report.json' , '--glue', 'runner', 'src/test/resources']
+            args = ['--plugin','json:build/reports/cucumber/report.json' , '--glue', 'runner', 'src/test/resources','--tags']+[suite]
         }
     }
 }
