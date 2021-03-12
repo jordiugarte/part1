@@ -28,7 +28,7 @@ public class MyStepdefs {
         response =  given().
                 auth().
                 preemptive().
-                basic("upb2021@upb.com","12345").
+                basic("jordi@ugarte.com","123456879").
                 contentType(ContentType.JSON).
                 body(body).
                 log().

@@ -18,7 +18,7 @@ public class JsonHelper {
             String key = (String) propertiesList.next();
             if (actualResultJSON.has(key)) {
                 String expValue = String.valueOf(expectedResultJSON.get(key));
-                String actValue =  String.valueOf( actualResultJSON.get(key));
+                String actValue = String.valueOf(actualResultJSON.get(key));
                 if (expValue.equals("IGNORE")) {
                     System.out.println("Propiedad [" + key + "] es ignorado para la verificacion");
                 } else if (!expValue.equals(actValue)) {
